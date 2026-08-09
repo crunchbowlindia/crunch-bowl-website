@@ -1,555 +1,1256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Crunch Bowl | Fresh & Hygienic Golgappe</title>
+<title>Crunch Bowl | Fresh • Hygienic • Delicious</title>
 
-  <meta name="description" content="Crunch Bowl - Fresh, hygienic and crispy golgappe made with RO purified water.">
+<meta name="description" content="Crunch Bowl - Fresh, hygienic and delicious golgappe, bhel, juices, shakes, patties, sandwiches and beverages.">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+:root{
+  --orange:#ff5a36;
+  --orange-dark:#e94320;
+  --yellow:#ffbf35;
+  --cream:#fffaf3;
+  --dark:#171717;
+  --dark2:#222;
+  --text:#292929;
+  --muted:#777;
+  --white:#fff;
+  --border:#eee;
+  --shadow:0 12px 35px rgba(0,0,0,.08);
+  --radius:18px;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
 
-    body {
-      background: #fffaf3;
-      color: #222;
-    }
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  line-height:1.6;
+}
 
-    header {
-      background: #ffffff;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
+button,
+input{
+  font:inherit;
+}
 
-    .logo {
-      font-size: 26px;
-      font-weight: 800;
-      color: #e85d04;
-    }
+button{
+  cursor:pointer;
+}
 
-    .logo span {
-      color: #222;
-    }
+/* ================= HEADER ================= */
 
-    nav a {
-      text-decoration: none;
-      color: #333;
-      margin-left: 25px;
-      font-weight: 600;
-    }
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,250,243,.96);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
 
-    nav a:hover {
-      color: #e85d04;
-    }
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  height:76px;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
 
-    .hero {
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 70px 7%;
-      gap: 40px;
-      background: linear-gradient(135deg, #fff3df, #fffaf3);
-    }
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:var(--dark);
+  font-weight:900;
+  font-size:25px;
+  letter-spacing:-1px;
+}
 
-    .hero-text {
-      max-width: 600px;
-    }
+.logo-mark{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--orange),var(--yellow));
+  color:white;
+  font-size:23px;
+  box-shadow:0 7px 20px rgba(255,90,54,.25);
+}
 
-    .tag {
-      display: inline-block;
-      background: #ffe0b2;
-      color: #c94f00;
-      padding: 8px 15px;
-      border-radius: 30px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
+.logo span{
+  color:var(--orange);
+}
 
-    .hero h1 {
-      font-size: 58px;
-      line-height: 1.05;
-      margin-bottom: 20px;
-    }
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
 
-    .hero h1 span {
-      color: #e85d04;
-    }
+.nav-links a{
+  text-decoration:none;
+  color:#333;
+  font-weight:700;
+  font-size:14px;
+  transition:.25s;
+}
 
-    .hero p {
-      font-size: 19px;
-      line-height: 1.6;
-      color: #555;
-      margin-bottom: 30px;
-    }
+.nav-links a:hover{
+  color:var(--orange);
+}
 
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
+.cart-btn{
+  position:relative;
+  border:0;
+  background:var(--dark);
+  color:#fff;
+  padding:12px 16px;
+  border-radius:14px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
 
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+.cart-count{
+  position:absolute;
+  top:-7px;
+  right:-7px;
+  min-width:21px;
+  height:21px;
+  padding:0 5px;
+  border-radius:50px;
+  display:grid;
+  place-items:center;
+  background:var(--orange);
+  color:white;
+  font-size:11px;
+  border:2px solid var(--cream);
+}
 
-    .btn-primary {
-      background: #e85d04;
-      color: white;
-    }
+/* ================= HERO ================= */
 
-    .btn-primary:hover {
-      background: #c94f00;
-      transform: translateY(-2px);
-    }
+.hero{
+  max-width:1200px;
+  margin:auto;
+  padding:75px 20px 65px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:45px;
+}
 
-    .btn-secondary {
-      border: 2px solid #e85d04;
-      color: #e85d04;
-    }
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 14px;
+  background:#fff;
+  border:1px solid #f0dfd6;
+  border-radius:50px;
+  color:var(--orange);
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:20px;
+}
 
-    .btn-secondary:hover {
-      background: #e85d04;
-      color: white;
-    }
+.hero h1{
+  font-size:clamp(42px,6vw,72px);
+  line-height:1.02;
+  letter-spacing:-3px;
+  margin-bottom:20px;
+}
 
-    .hero-food {
-      width: 380px;
-      height: 380px;
-      border-radius: 50%;
-      background: #ffd166;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 150px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-    }
+.hero h1 span{
+  color:var(--orange);
+}
 
-    section {
-      padding: 80px 7%;
-    }
+.hero p{
+  max-width:580px;
+  color:var(--muted);
+  font-size:18px;
+  margin-bottom:28px;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-    .section-title h2 {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
+.btn{
+  border:0;
+  text-decoration:none;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  padding:14px 21px;
+  border-radius:14px;
+  font-weight:800;
+  transition:.25s;
+}
 
-    .section-title p {
-      color: #666;
-      font-size: 17px;
-    }
+.btn-primary{
+  background:var(--orange);
+  color:white;
+  box-shadow:0 10px 25px rgba(255,90,54,.25);
+}
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
+.btn-primary:hover{
+  background:var(--orange-dark);
+  transform:translateY(-2px);
+}
 
-    .feature {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-    }
+.btn-dark{
+  background:var(--dark);
+  color:#fff;
+}
 
-    .feature-icon {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
+.btn-dark:hover{
+  transform:translateY(-2px);
+}
 
-    .feature h3 {
-      margin-bottom: 10px;
-      font-size: 21px;
-    }
+.hero-card{
+  min-height:420px;
+  border-radius:35px;
+  overflow:hidden;
+  position:relative;
+  background:
+    radial-gradient(circle at 50% 30%,#ffcf55 0,#ff8a35 28%,transparent 29%),
+    linear-gradient(145deg,#32150c,#130b08);
+  box-shadow:0 25px 60px rgba(0,0,0,.18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    .feature p {
-      color: #666;
-      line-height: 1.5;
-    }
+.hero-food{
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 30%,#f9cf73 0 5%,transparent 6%),
+    radial-gradient(circle at 65% 35%,#eaa948 0 5%,transparent 6%),
+    radial-gradient(circle at 45% 70%,#e8a83c 0 5%,transparent 6%),
+    radial-gradient(circle,#d88925 0 58%,#b95d19 59% 72%,#803611 73%);
+  box-shadow:
+    0 25px 40px rgba(0,0,0,.35),
+    inset -15px -20px 25px rgba(0,0,0,.18);
+  position:relative;
+}
 
-    .menu {
-      background: #fff3df;
-    }
+.hero-food:before{
+  content:"CRUNCH";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  color:white;
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:1px;
+}
 
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
+.hero-food:after{
+  content:"BOWL";
+  position:absolute;
+  left:50%;
+  top:62%;
+  transform:translate(-50%,-50%);
+  color:var(--yellow);
+  font-size:25px;
+  font-weight:900;
+}
 
-    .menu-card {
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-    }
+.hero-floating{
+  position:absolute;
+  background:#fff;
+  border-radius:16px;
+  padding:13px 16px;
+  box-shadow:var(--shadow);
+  font-weight:800;
+  font-size:13px;
+}
 
-    .food-icon {
-      font-size: 75px;
-      margin-bottom: 15px;
-    }
+.float-one{
+  left:22px;
+  top:45px;
+}
 
-    .menu-card h3 {
-      font-size: 22px;
-      margin-bottom: 8px;
-    }
+.float-two{
+  right:22px;
+  bottom:45px;
+}
 
-    .menu-card p {
-      color: #666;
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
+/* ================= SECTION ================= */
 
-    .price {
-      color: #e85d04;
-      font-size: 22px;
-      font-weight: 800;
-    }
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:75px 20px;
+}
 
-    .about {
-      display: flex;
-      align-items: center;
-      gap: 60px;
-    }
+.section-heading{
+  text-align:center;
+  margin-bottom:35px;
+}
 
-    .about-box {
-      flex: 1;
-    }
+.section-heading small{
+  color:var(--orange);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
 
-    .about-box h2 {
-      font-size: 38px;
-      margin-bottom: 20px;
-    }
+.section-heading h2{
+  font-size:42px;
+  line-height:1.1;
+  margin:7px 0 10px;
+  letter-spacing:-1.5px;
+}
 
-    .about-box p {
-      color: #555;
-      line-height: 1.8;
-      font-size: 17px;
-      margin-bottom: 15px;
-    }
+.section-heading p{
+  color:var(--muted);
+}
 
-    .about-highlight {
-      flex: 1;
-      background: #e85d04;
-      color: white;
-      padding: 45px;
-      border-radius: 25px;
-      text-align: center;
-    }
+/* ================= FEATURES ================= */
 
-    .about-highlight .big {
-      font-size: 65px;
-      margin-bottom: 15px;
-    }
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
 
-    .order {
-      background: #222;
-      color: white;
-      text-align: center;
-    }
+.feature{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:25px;
+  box-shadow:0 5px 20px rgba(0,0,0,.035);
+  transition:.3s;
+}
 
-    .order h2 {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
+.feature:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
+}
 
-    .order p {
-      color: #ddd;
-      margin-bottom: 30px;
-      font-size: 18px;
-    }
+.feature-icon{
+  width:50px;
+  height:50px;
+  display:grid;
+  place-items:center;
+  border-radius:15px;
+  background:#fff1e9;
+  font-size:23px;
+  margin-bottom:15px;
+}
 
-    footer {
-      background: #111;
-      color: #aaa;
-      text-align: center;
-      padding: 25px;
-    }
+.feature h3{
+  margin-bottom:6px;
+}
 
-    footer strong {
-      color: white;
-    }
+.feature p{
+  color:var(--muted);
+  font-size:14px;
+}
 
-    @media (max-width: 850px) {
-      nav {
-        display: none;
-      }
+/* ================= MENU ================= */
 
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 50px;
-      }
+.menu-section{
+  background:#171717;
+  color:white;
+}
 
-      .hero h1 {
-        font-size: 43px;
-      }
+.menu-section .section-heading p{
+  color:#aaa;
+}
 
-      .hero-food {
-        width: 280px;
-        height: 280px;
-        font-size: 110px;
-      }
+.menu-controls{
+  max-width:1000px;
+  margin:0 auto 35px;
+}
 
-      .buttons {
-        justify-content: center;
-      }
+.search-box{
+  position:relative;
+  margin-bottom:18px;
+}
 
-      .features,
-      .menu-grid {
-        grid-template-columns: 1fr;
-      }
+.search-box input{
+  width:100%;
+  padding:16px 20px 16px 50px;
+  border:0;
+  border-radius:15px;
+  outline:none;
+  background:#292929;
+  color:#fff;
+  border:1px solid #3a3a3a;
+}
 
-      .about {
-        flex-direction: column;
-      }
-    }
-  </style>
+.search-box span{
+  position:absolute;
+  left:18px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.categories{
+  display:flex;
+  gap:9px;
+  overflow-x:auto;
+  padding-bottom:5px;
+}
+
+.category-btn{
+  flex:0 0 auto;
+  border:1px solid #444;
+  background:#242424;
+  color:#ddd;
+  padding:10px 15px;
+  border-radius:50px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.category-btn.active,
+.category-btn:hover{
+  background:var(--orange);
+  border-color:var(--orange);
+  color:#fff;
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.menu-card{
+  background:#fff;
+  color:var(--text);
+  border-radius:18px;
+  padding:19px;
+  display:flex;
+  flex-direction:column;
+  min-height:190px;
+  transition:.25s;
+}
+
+.menu-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 35px rgba(0,0,0,.25);
+}
+
+.menu-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.menu-icon{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:#fff1e8;
+  font-size:23px;
+}
+
+.menu-price{
+  color:var(--orange);
+  font-weight:900;
+  font-size:18px;
+}
+
+.menu-card h3{
+  font-size:17px;
+  margin-top:13px;
+}
+
+.menu-card small{
+  color:#888;
+  margin-top:3px;
+}
+
+.add-btn{
+  margin-top:auto;
+  width:100%;
+  border:0;
+  background:#181818;
+  color:#fff;
+  padding:11px;
+  border-radius:11px;
+  font-weight:800;
+  transition:.2s;
+}
+
+.add-btn:hover{
+  background:var(--orange);
+}
+
+.no-results{
+  grid-column:1/-1;
+  text-align:center;
+  color:#aaa;
+  padding:40px;
+}
+
+/* ================= OFFER ================= */
+
+.offer{
+  max-width:1160px;
+  margin:65px auto 0;
+  padding:35px;
+  border-radius:25px;
+  background:linear-gradient(135deg,var(--orange),#ff8d32);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  color:#fff;
+}
+
+.offer h3{
+  font-size:30px;
+}
+
+.offer p{
+  opacity:.9;
+}
+
+.offer .btn{
+  background:#fff;
+  color:var(--orange);
+  flex:0 0 auto;
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  align-items:center;
+}
+
+.about-box{
+  background:#fff;
+  border-radius:25px;
+  padding:35px;
+  box-shadow:var(--shadow);
+}
+
+.about-box h2{
+  font-size:40px;
+  line-height:1.1;
+  margin-bottom:15px;
+}
+
+.about-box p{
+  color:var(--muted);
+  margin-bottom:15px;
+}
+
+.about-list{
+  list-style:none;
+  display:grid;
+  gap:10px;
+}
+
+.about-list li{
+  font-weight:700;
+}
+
+.about-list li span{
+  color:var(--orange);
+  margin-right:8px;
+}
+
+.about-visual{
+  min-height:390px;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 30% 25%,#ffcf5a,transparent 22%),
+    radial-gradient(circle at 75% 75%,#ff653d,transparent 25%),
+    linear-gradient(135deg,#24100b,#080808);
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.about-circle{
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#f7c456,#c8751d);
+  box-shadow:0 30px 50px rgba(0,0,0,.4);
+  display:grid;
+  place-items:center;
+  color:white;
+  font-size:28px;
+  font-weight:900;
+}
+
+/* ================= CART ================= */
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:2000;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+}
+
+.cart-overlay.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.cart-panel{
+  position:absolute;
+  right:0;
+  top:0;
+  height:100%;
+  width:min(430px,100%);
+  background:#fff;
+  color:var(--text);
+  display:flex;
+  flex-direction:column;
+  transform:translateX(100%);
+  transition:.3s;
+}
+
+.cart-overlay.open .cart-panel{
+  transform:translateX(0);
+}
+
+.cart-header{
+  padding:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+}
+
+.cart-header h2{
+  font-size:22px;
+}
+
+.close-cart{
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:12px;
+  background:#f4f4f4;
+  font-size:20px;
+}
+
+.cart-items{
+  flex:1;
+  overflow-y:auto;
+  padding:18px;
+}
+
+.empty-cart{
+  text-align:center;
+  color:#888;
+  padding:60px 20px;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:10px;
+  padding:15px 0;
+  border-bottom:1px solid #eee;
+}
+
+.cart-item-name{
+  font-weight:800;
+}
+
+.cart-item-price{
+  color:var(--orange);
+  font-weight:900;
+}
+
+.qty-controls{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+}
+
+.qty-controls button{
+  width:28px;
+  height:28px;
+  border:0;
+  border-radius:8px;
+  background:#eee;
+  font-weight:900;
+}
+
+.cart-footer{
+  padding:20px;
+  border-top:1px solid var(--border);
+}
+
+.total-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:19px;
+  font-weight:900;
+  margin-bottom:15px;
+}
+
+.checkout{
+  width:100%;
+  border:0;
+  background:#25d366;
+  color:white;
+  padding:15px;
+  border-radius:13px;
+  font-weight:900;
+  font-size:16px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-card{
+  background:#181818;
+  color:#fff;
+  border-radius:28px;
+  padding:45px;
+  text-align:center;
+}
+
+.contact-card h2{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.contact-card p{
+  color:#aaa;
+  margin-bottom:25px;
+}
+
+.contact-buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#0d0d0d;
+  color:#aaa;
+  text-align:center;
+  padding:30px 20px;
+}
+
+footer strong{
+  color:#fff;
+}
+
+.footer-brand{
+  font-size:22px;
+  font-weight:900;
+  color:white;
+  margin-bottom:5px;
+}
+
+.footer-brand span{
+  color:var(--orange);
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,120px);
+  background:#171717;
+  color:white;
+  padding:13px 18px;
+  border-radius:12px;
+  z-index:5000;
+  font-size:14px;
+  font-weight:700;
+  transition:.3s;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.toast.show{
+  transform:translate(-50%,0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:50px;
+  }
+
+  .hero-card{
+    min-height:330px;
+  }
+
+  .menu-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:700px){
+  .nav-links{
+    display:none;
+  }
+
+  .navbar{
+    height:68px;
+  }
+
+  .logo{
+    font-size:21px;
+  }
+
+  .logo-mark{
+    width:37px;
+    height:37px;
+  }
+
+  .hero{
+    padding:45px 16px;
+  }
+
+  .hero h1{
+    font-size:46px;
+    letter-spacing:-2px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .hero-card{
+    min-height:300px;
+  }
+
+  .hero-food{
+    width:190px;
+    height:190px;
+  }
+
+  .section{
+    padding:55px 16px;
+  }
+
+  .section-heading h2{
+    font-size:34px;
+  }
+
+  .menu-grid{
+    grid-template-columns:1fr;
+  }
+
+  .offer{
+    margin:40px 16px 0;
+    padding:25px;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .offer h3{
+    font-size:25px;
+  }
+
+  .about-box{
+    padding:25px;
+  }
+
+  .about-box h2{
+    font-size:32px;
+  }
+
+  .contact-card{
+    padding:30px 20px;
+  }
+
+  .contact-card h2{
+    font-size:32px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">Crunch <span>Bowl</span></div>
+<!-- ================= HEADER ================= -->
 
-    <nav>
+<header>
+  <nav class="navbar">
+
+    <a href="#home" class="logo">
+      <div class="logo-mark">🥣</div>
+      Crunch <span>Bowl</span>
+    </a>
+
+    <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#menu">Menu</a>
       <a href="#about">About</a>
-      <a href="#order">Order</a>
-    </nav>
-  </header>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <button class="cart-btn" onclick="openCart()">
+      🛒 Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+  </nav>
+</header>
 
 
-  <section class="hero" id="home">
+<!-- ================= HERO ================= -->
 
-    <div class="hero-text">
+<main>
 
-      <div class="tag">🌶️ Fresh • Hygienic • Crispy</div>
+<section class="hero" id="home">
 
-      <h1>
-        The Perfect<br>
-        <span>Crunch</span> in Every Bite!
-      </h1>
+  <div>
+
+    <div class="hero-badge">
+      ✨ Freshly Made • Hygienically Prepared
+    </div>
+
+    <h1>
+      Crunchy.<br>
+      Fresh.<br>
+      <span>Unforgettable.</span>
+    </h1>
+
+    <p>
+      Delicious golgappe, bhel, fresh juices, creamy shakes,
+      patties, sandwiches and more — made fresh for every order.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#menu" class="btn btn-primary">
+        🍽️ Explore Menu
+      </a>
+
+      <button class="btn btn-dark" onclick="openCart()">
+        🛒 View Cart
+      </button>
+    </div>
+
+  </div>
+
+  <div class="hero-card">
+
+    <div class="hero-floating float-one">
+      💧 RO Purified Water
+    </div>
+
+    <div class="hero-food"></div>
+
+    <div class="hero-floating float-two">
+      ✨ Fresh • Crispy • Delicious
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <small>Why Crunch Bowl?</small>
+    <h2>Good food starts with good care.</h2>
+    <p>We focus on freshness, hygiene and great taste.</p>
+  </div>
+
+  <div class="features">
+
+    <div class="feature">
+      <div class="feature-icon">💧</div>
+      <h3>RO Purified Water</h3>
+      <p>Clean and carefully prepared water for our food and drinks.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🥗</div>
+      <h3>Fresh Ingredients</h3>
+      <p>Fresh ingredients selected and prepared with care.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🧼</div>
+      <h3>Hygienic Preparation</h3>
+      <p>We care about cleanliness at every stage of preparation.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= MENU ================= -->
+
+<section class="menu-section" id="menu">
+
+  <div class="section">
+
+    <div class="section-heading">
+      <small>Our Menu</small>
+      <h2>Choose your crunch.</h2>
+      <p>Fresh favourites made for every mood.</p>
+    </div>
+
+    <div class="menu-controls">
+
+      <div class="search-box">
+        <span>🔎</span>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search golgappe, bhel, juice..."
+          oninput="renderMenu()"
+        >
+      </div>
+
+      <div class="categories" id="categories"></div>
+
+    </div>
+
+    <div class="menu-grid" id="menuGrid"></div>
+
+    <div class="offer">
+
+      <div>
+        <h3>Hungry already? 😋</h3>
+        <p>Add your favourites to the cart and place your order.</p>
+      </div>
+
+      <button class="btn" onclick="openCart()">
+        🛒 Open Cart
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section" id="about">
+
+  <div class="about-grid">
+
+    <div class="about-box">
+
+      <small style="color:#ff5a36;font-weight:900;">
+        ABOUT CRUNCH BOWL
+      </small>
+
+      <h2>
+        More crunch.<br>
+        More happiness.
+      </h2>
 
       <p>
-        Fresh and crispy golgappe made with care,
-        delicious flavours and RO purified water.
-        Taste the Crunch Bowl difference!
+        Crunch Bowl is all about serving delicious food with
+        freshness, hygiene and consistency.
       </p>
 
-      <div class="buttons">
-        <a href="#menu" class="btn btn-primary">View Menu</a>
-        <a href="#order" class="btn btn-secondary">Order Now</a>
-      </div>
+      <ul class="about-list">
+
+        <li>
+          <span>✓</span>
+          Freshly prepared
+        </li>
+
+        <li>
+          <span>✓</span>
+          Hygienic preparation
+        </li>
+
+        <li>
+          <span>✓</span>
+          RO purified water
+        </li>
+
+        <li>
+          <span>✓</span>
+          Carefully packed
+        </li>
+
+        <li>
+          <span>✓</span>
+          Made with love ❤️
+        </li>
+
+      </ul>
 
     </div>
 
-    <div class="hero-food">
-      🥣
+    <div class="about-visual">
+      <div class="about-circle">
+        CRUNCH<br>
+        <span style="color:#ffd044;">BOWL</span>
+      </div>
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <section>
+<!-- ================= CONTACT ================= -->
 
-    <div class="section-title">
-      <h2>Why Crunch Bowl?</h2>
-      <p>Because great taste starts with great hygiene.</p>
-    </div>
+<section class="section" id="contact">
 
-    <div class="features">
-
-      <div class="feature">
-        <div class="feature-icon">💧</div>
-        <h3>RO Purified Water</h3>
-        <p>
-          We use purified water for a cleaner and
-          better golgappa experience.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">🥗</div>
-        <h3>Fresh Ingredients</h3>
-        <p>
-          Fresh ingredients prepared carefully
-          for delicious flavour in every bite.
-        </p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">✨</div>
-        <h3>Hygienic Preparation</h3>
-        <p>
-          Clean and hygienic preparation is at
-          the heart of Crunch Bowl.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="menu" id="menu">
-
-    <div class="section-title">
-      <h2>Our Menu</h2>
-      <p>Choose your favourite Crunch Bowl.</p>
-    </div>
-
-    <div class="menu-grid">
-
-      <div class="menu-card">
-        <div class="food-icon">🥣</div>
-        <h3>Classic Golgappe</h3>
-        <p>
-          Crispy golgappe with delicious spicy
-          and tangy flavours.
-        </p>
-        <div class="price">₹99</div>
-      </div>
-
-      <div class="menu-card">
-        <div class="food-icon">🌶️</div>
-        <h3>Family Pack</h3>
-        <p>
-          A generous pack made for sharing
-          with family and friends.
-        </p>
-        <div class="price">₹299</div>
-      </div>
-
-      <div class="menu-card">
-        <div class="food-icon">🥗</div>
-        <h3>Dahi Puri</h3>
-        <p>
-          Crispy puris topped with creamy
-          dahi and tasty flavours.
-        </p>
-        <div class="price">₹129</div>
-      </div>
-
-      <div class="menu-card">
-        <div class="food-icon">🥙</div>
-        <h3>Bhel Puri</h3>
-        <p>
-          Fresh, crunchy and tangy street-food
-          favourite.
-        </p>
-        <div class="price">₹129</div>
-      </div>
-
-      <div class="menu-card">
-        <div class="food-icon">🎉</div>
-        <h3>Party Pack</h3>
-        <p>
-          Perfect for parties, gatherings and
-          special occasions.
-        </p>
-        <div class="price">₹399</div>
-      </div>
-
-      <div class="menu-card">
-        <div class="food-icon">🔥</div>
-        <h3>Crunch Special</h3>
-        <p>
-          Our special combination created
-          especially for Crunch Bowl lovers.
-        </p>
-        <div class="price">₹149</div>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section id="about">
-
-    <div class="about">
-
-      <div class="about-box">
-        <h2>Our Story</h2>
-
-        <p>
-          Crunch Bowl was created with a simple idea —
-          to make one of India's favourite street foods
-          more hygienic, fresh and enjoyable.
-        </p>
-
-        <p>
-          From crispy golgappe to delicious chaat,
-          every order is prepared with attention to
-          freshness, taste and cleanliness.
-        </p>
-
-        <p>
-          <strong>Fresh • Hygienic • RO Purified Water • Crispy Every Bite</strong>
-        </p>
-      </div>
-
-      <div class="about-highlight">
-        <div class="big">🥣</div>
-        <h2>Made Fresh.<br>Served with Crunch.</h2>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="order" id="order">
+  <div class="contact-card">
 
     <h2>Ready for the Crunch? 😋</h2>
 
     <p>
-      Your favourite golgappe are just one order away.
+      Pick your favourites, add them to your cart and order.
     </p>
 
-    <div class="buttons">
-      <a href="#" class="btn btn-primary">Order on Swiggy</a>
-      <a href="#" class="btn btn-secondary">Order on Zomato</a>
+    <div class="contact-buttons">
+
+      <a href="#menu" class="btn btn-primary">
+        🍽️ View Menu
+      </a>
+
+      <button class="btn" style="background:#25d366;color:#fff;"
+              onclick="openWhatsApp()">
+        💬 WhatsApp Order
+      </button>
+
     </div>
 
-  </section>
+  </div>
+
+</section>
+
+</main>
 
 
-  <footer>
-    <p>
-      © 2026 <strong>Crunch Bowl</strong> • Fresh • Hygienic • Delicious
-    </p>
-  </footer>
+<!-- ================= CART ================= -->
 
-</body>
-</html>
+<div class="cart-overlay" id="cartOverlay" onclick="closeCartOutside(event)">
+
+  <div class="cart-panel">
+
+    <div class="cart-header">
+
+      <h2>🛒 Your Cart</h2>
+
+      <button class="close-cart" onclick="closeCart()">
+        ×
+      </button>
+
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+
+      <div class="total-row">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+
+      <button class="checkout" onclick="openWhatsApp()">
+        💬 Place Order on WhatsApp
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast"></div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="footer-brand">
+    Crunch <span>Bowl</span>
+  </div>
+
+  <p>
+    Fresh • Hygienic • Delicious
+  </p>
+
+  <p style="margin-top:8px;font-size:13px;">
+    © 2026 Crunch Bowl. All rights reserved.
+  </p>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   CRUNCH BOWL MENU DATA
+========================================================= */
+
+const menu = [
+
+  /* GOLGAPPE */
+
+  {
+    name:"6 Pcs Golgappe",
+    price:29,
+    category:"Golgappe",
+    icon:"🥣"
+  },
+
+  {
+    name:"10 P
