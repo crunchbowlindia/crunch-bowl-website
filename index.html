@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Crunch Bowl | Fresh & Hygienic Golgappe</title>
+
+  <meta name="description" content="Crunch Bowl - Fresh, hygienic and crispy golgappe made with RO purified water.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #fffaf3;
+      color: #222;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #e85d04;
+    }
+
+    .logo span {
+      color: #222;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin-left: 25px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #e85d04;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 70px 7%;
+      gap: 40px;
+      background: linear-gradient(135deg, #fff3df, #fffaf3);
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ffe0b2;
+      color: #c94f00;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #e85d04;
+    }
+
+    .hero p {
+      font-size: 19px;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #e85d04;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #c94f00;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 2px solid #e85d04;
+      color: #e85d04;
+    }
+
+    .btn-secondary:hover {
+      background: #e85d04;
+      color: white;
+    }
+
+    .hero-food {
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: #ffd166;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 150px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    section {
+      padding: 80px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+      font-size: 17px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feature {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    }
+
+    .feature-icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .feature p {
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .menu {
+      background: #fff3df;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .menu-card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    }
+
+    .food-icon {
+      font-size: 75px;
+      margin-bottom: 15px;
+    }
+
+    .menu-card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .menu-card p {
+      color: #666;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .price {
+      color: #e85d04;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .about-box {
+      flex: 1;
+    }
+
+    .about-box h2 {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .about-box p {
+      color: #555;
+      line-height: 1.8;
+      font-size: 17px;
+      margin-bottom: 15px;
+    }
+
+    .about-highlight {
+      flex: 1;
+      background: #e85d04;
+      color: white;
+      padding: 45px;
+      border-radius: 25px;
+      text-align: center;
+    }
+
+    .about-highlight .big {
+      font-size: 65px;
+      margin-bottom: 15px;
+    }
+
+    .order {
+      background: #222;
+      color: white;
+      text-align: center;
+    }
+
+    .order h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .order p {
+      color: #ddd;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 25px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero-food {
+        width: 280px;
+        height: 280px;
+        font-size: 110px;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .features,
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Crunch <span>Bowl</span></div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#order">Order</a>
+    </nav>
+  </header>
+
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <div class="tag">🌶️ Fresh • Hygienic • Crispy</div>
+
+      <h1>
+        The Perfect<br>
+        <span>Crunch</span> in Every Bite!
+      </h1>
+
+      <p>
+        Fresh and crispy golgappe made with care,
+        delicious flavours and RO purified water.
+        Taste the Crunch Bowl difference!
+      </p>
+
+      <div class="buttons">
+        <a href="#menu" class="btn btn-primary">View Menu</a>
+        <a href="#order" class="btn btn-secondary">Order Now</a>
+      </div>
+
+    </div>
+
+    <div class="hero-food">
+      🥣
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="section-title">
+      <h2>Why Crunch Bowl?</h2>
+      <p>Because great taste starts with great hygiene.</p>
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">💧</div>
+        <h3>RO Purified Water</h3>
+        <p>
+          We use purified water for a cleaner and
+          better golgappa experience.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🥗</div>
+        <h3>Fresh Ingredients</h3>
+        <p>
+          Fresh ingredients prepared carefully
+          for delicious flavour in every bite.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">✨</div>
+        <h3>Hygienic Preparation</h3>
+        <p>
+          Clean and hygienic preparation is at
+          the heart of Crunch Bowl.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="menu" id="menu">
+
+    <div class="section-title">
+      <h2>Our Menu</h2>
+      <p>Choose your favourite Crunch Bowl.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <div class="food-icon">🥣</div>
+        <h3>Classic Golgappe</h3>
+        <p>
+          Crispy golgappe with delicious spicy
+          and tangy flavours.
+        </p>
+        <div class="price">₹99</div>
+      </div>
+
+      <div class="menu-card">
+        <div class="food-icon">🌶️</div>
+        <h3>Family Pack</h3>
+        <p>
+          A generous pack made for sharing
+          with family and friends.
+        </p>
+        <div class="price">₹299</div>
+      </div>
+
+      <div class="menu-card">
+        <div class="food-icon">🥗</div>
+        <h3>Dahi Puri</h3>
+        <p>
+          Crispy puris topped with creamy
+          dahi and tasty flavours.
+        </p>
+        <div class="price">₹129</div>
+      </div>
+
+      <div class="menu-card">
+        <div class="food-icon">🥙</div>
+        <h3>Bhel Puri</h3>
+        <p>
+          Fresh, crunchy and tangy street-food
+          favourite.
+        </p>
+        <div class="price">₹129</div>
+      </div>
+
+      <div class="menu-card">
+        <div class="food-icon">🎉</div>
+        <h3>Party Pack</h3>
+        <p>
+          Perfect for parties, gatherings and
+          special occasions.
+        </p>
+        <div class="price">₹399</div>
+      </div>
+
+      <div class="menu-card">
+        <div class="food-icon">🔥</div>
+        <h3>Crunch Special</h3>
+        <p>
+          Our special combination created
+          especially for Crunch Bowl lovers.
+        </p>
+        <div class="price">₹149</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="about">
+
+    <div class="about">
+
+      <div class="about-box">
+        <h2>Our Story</h2>
+
+        <p>
+          Crunch Bowl was created with a simple idea —
+          to make one of India's favourite street foods
+          more hygienic, fresh and enjoyable.
+        </p>
+
+        <p>
+          From crispy golgappe to delicious chaat,
+          every order is prepared with attention to
+          freshness, taste and cleanliness.
+        </p>
+
+        <p>
+          <strong>Fresh • Hygienic • RO Purified Water • Crispy Every Bite</strong>
+        </p>
+      </div>
+
+      <div class="about-highlight">
+        <div class="big">🥣</div>
+        <h2>Made Fresh.<br>Served with Crunch.</h2>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="order" id="order">
+
+    <h2>Ready for the Crunch? 😋</h2>
+
+    <p>
+      Your favourite golgappe are just one order away.
+    </p>
+
+    <div class="buttons">
+      <a href="#" class="btn btn-primary">Order on Swiggy</a>
+      <a href="#" class="btn btn-secondary">Order on Zomato</a>
+    </div>
+
+  </section>
+
+
+  <footer>
+    <p>
+      © 2026 <strong>Crunch Bowl</strong> • Fresh • Hygienic • Delicious
+    </p>
+  </footer>
+
+</body>
+</html>
